@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -20,8 +21,10 @@ onSubmit(form: NgForm){
   console.log(form.value.pass);
   //sendDataToServer(form.value.login, form.value.pass);
 
- this.router.navigate(['/projects', form.value.login]);
- //this.router.navigate(['/projects']);
+this.userService.currentUserName=form.value.login;
+
+ this.router.navigate(['/projects']);
+ 
 
 }
 

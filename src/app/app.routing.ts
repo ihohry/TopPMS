@@ -6,7 +6,7 @@ import {ProjectsComponent} from './projects/projects.component';
 const appRoutes: Routes = [
 {path: 'login', component: LoginComponent },
 //{path: 'projects', component: ProjectsComponent },
-{path: 'projects/:username', component: ProjectsComponent },
+{path: 'projects', component: ProjectsComponent },
 {path: '', redirectTo: '/login', pathMatch: 'full'}
 
 ];
