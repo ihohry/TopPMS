@@ -2,12 +2,14 @@
 <div class="container">
   <h1>Projects</h1>
   <p class="lead">All Projects</p>
+  <button class="success" (click)="createProject()">Create</button>
   <div class="container">
     <div class="row" *ngFor="let project of projectsService.projects">
-      <div class="col">{{project.name}}</div>
-      <div class="col">{{project.owner}}</div>
-      <div class="col">{{project.type}}</div>
-      <span [routerLink]="getProjectDetailsURL(project)">Details</span>
+      <app-list-item [item]="project"
+                     [detailsRouterLink]="getProjectDetailsURL(project)"
+                     [updateRouterLink]="getProjectDetailsURL(project)"
+                     (delete)="deleteProject($event)"></app-list-item>
+
     </div>
   </div>
 </div>

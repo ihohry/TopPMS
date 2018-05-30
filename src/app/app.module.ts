@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { UserService } from './login/user.service';
 import { TasksComponent } from './tasks/tasks.component';
 import { ProjectsService } from './projects/projects.service';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
+import { ListItemComponent } from './list-item/list-item.component';
+import { HttpRequestor } from './common/http.requestor';
 
 
 @NgModule({
@@ -21,15 +24,18 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
     LoginComponent,
     ProjectsComponent,
     TasksComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule, 
+    HttpClientModule,
     FormsModule,
     routing
      
   ],
   providers: [
+    HttpRequestor,
     UserService,
     ProjectsService
   ],
